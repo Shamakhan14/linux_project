@@ -26,3 +26,5 @@ iptables -A INPUT -p tcp --dport 8443 -j ACCEPT
 iptables -P INPUT DROP
 #сохранение настроек
 iptables-save
+netfilter-persistent save
+netfilter-persistent start
