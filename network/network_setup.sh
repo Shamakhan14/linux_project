@@ -10,3 +10,7 @@ FILENAME="50-cloud-init.yaml"
 
 sed -i "s/$OLD_IP/$IP/g" "$FILENAME"
 sed -i "s/$OLD_ROUTE/$ROUTE/g" "$FILENAME"
+
+cp 99-disable-network-config.cfg /etc/cloud/cloud.cfg.d/
+cp 50-cloud-init.yaml /etc/netplan/
+netplan apply
