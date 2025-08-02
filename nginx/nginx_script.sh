@@ -15,8 +15,7 @@ sed -i "s/$OLD_APACHE2_IP/$APACHE2_IP/g" "$NGINX_CONF_NAME"
 
 cp -r nginx_config/* /etc/nginx
 cp -r html/* /var/www/html
-ll -s /etc/nginx/sites-available/default default
-cp default /etc/nginx/sites-enabled/default
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
 service nginx reload
 service nginx restart
