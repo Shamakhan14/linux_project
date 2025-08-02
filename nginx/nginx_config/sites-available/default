@@ -25,7 +25,7 @@ server {
 	}
 
 	location ~* \.(ico|png|jpe?g|gif)$ {
-		root /usr/share/apache2;
+		root old_icon_folder_path;
 	}
 
 	# pass PHP scripts to FastCGI server
