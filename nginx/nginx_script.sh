@@ -16,6 +16,9 @@ sed -i "s/$OLD_APACHE2_IP/$APACHE2_IP/g" "$NGINX_CONF_NAME"
 cp -r nginx_config/* /etc/nginx
 cp -r html/* /var/www/html
 ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+mkdir /usr/share/apache2
+mkdir /usr/share/apache2/icons
+cp /home/tester/git/linux_project/nginx/icons/ubuntu-logo.png /usr/share/apache2/icons/
 
 service nginx reload
 service nginx restart

@@ -25,7 +25,7 @@ server {
 	}
 
 	location ~* \.(ico|png|jpe?g|gif)$ {
-		root /home/tester/git/linux_project/nginx;
+		root /usr/share/apache2;
 	}
 
 	# pass PHP scripts to FastCGI server
