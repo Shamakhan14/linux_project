@@ -13,6 +13,7 @@ NGINX_CONF_NAME="nginx_config/sites-available/default"
 sed -i "s/$OLD_APACHE1_IP/$APACHE1_IP/g" "$NGINX_CONF_NAME"
 sed -i "s/$OLD_APACHE2_IP/$APACHE2_IP/g" "$NGINX_CONF_NAME"
 
+rm -r /etc/nginx/*
 cp -r nginx_config/* /etc/nginx
 cp -r html/* /var/www/html
 ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
