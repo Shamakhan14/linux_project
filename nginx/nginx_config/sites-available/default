@@ -1,6 +1,6 @@
 upstream backend {
-	server old_apache1_ip;
-	server old_apache2_ip;
+	server old_apache1_ip:80;
+	server old_apache2_ip:80;
 }
 
 server {
