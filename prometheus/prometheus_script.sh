@@ -12,7 +12,7 @@ cat << EOF >> /etc/prometheus/prometheus.yml
     static_configs:
       - targets: ['$APACHE1_IP:9117']
 
-  - job_name: 'apache1'
+  - job_name: 'apache2'
     static_configs:
       - targets: ['$APACHE2_IP:9117']
 
