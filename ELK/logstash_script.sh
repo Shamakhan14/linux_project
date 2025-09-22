@@ -8,7 +8,7 @@ chown -R logstash:logstash /etc/logstash/certs/
 
 echo "path.config: /etc/logstash/conf.d" >> /etc/logstash/logstash.yml
 
-cat << EOF > filename.txt
+cat << EOF > /etc/logstash/conf.d/logstash-nginx-es.conf
 input {
     beats {
         port => 5400
