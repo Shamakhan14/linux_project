@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#command: sh ELK_script.sh {nginx_ip}
+#command: sh logstash_script.sh
 
 mkdir /etc/logstash/certs/
 cp /etc/elasticsearch/certs/http_ca.crt /etc/logstash/certs/
