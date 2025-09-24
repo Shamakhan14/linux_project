@@ -1,0 +1,52 @@
+Сеть:
+1) Запустить скрипт network_setup.sh
+	sh network_setup.sh {vm_ip} {vm_route} (192.168.31.73,192.168.31.1)
+2) Проверить настройки командами
+	ip a
+	ip route
+3) Запустить скрипт iptables_setup.sh
+	sh iptables_setup.sh
+4) Проверить настройку трафика командой
+	
+
+Nginx:
+1) Запустить скрипт nginx_scipt.sh
+	sh nginx_scipt.sh {apache1_ip} {apache2_ip} (192.168.31.73,192.168.31.20)
+2) Проверить открытие страниц. Сами страницы можно поменять на машинах apache1 и 2
+
+MySQL:
+1) Прогнать скрипт
+2) Остановить репликацию на слэйве:
+	stop replica;
+3) Загрузить дамп на мастер:
+	mysql -u root otus < dump.sql
+4) Заново запустить репликацию на слэйве:
+	start replica;
+
+Prometheus + Grafana:
+1) Запустить скрипт prometheus_script.sh {-----} {-----}
+2) Зайти в графану (по умолчанию admin/admin)
+3) Connections -> Data sources -> Добавить промитей
+4) Импортировать дашборды 1860 (nginx), 3894 (apache)
+
+ELK:
+1) Запустить elasticsearch_script.sh {-----}
+2) Установить пароль 123456 командой
+	/usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic -i
+3) Проверка работоспособности elasticsearch
+	curl -k -u elastic:123456 https://localhost:9200/_cat/nodes?v
+4) В /etc/kibana/kibana.yml раскомментировать порт и хост, хост поменять на 0.0.0.0
+5) Запускаем kibana командой
+	systemctl restart kibana
+6) Заходим в графический интерфейс кибана на порту 5601
+7) Генеририруем токен командой
+	/usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana
+8) Скопировать полученный токен в кибану
+9) Получаем код верификации и вставляем в кибану командой
+	/usr/share/kibana/bin/kibana-verification-code
+10) Запускаем скрипт logstash_script.sh
+11) Запускаем скрипт filebeat_script.sh
+12) На кибане идем в Stack Management -> Index Management
+13) Идем Discover -> All Logs -> Create data view --> save
+	Name - Nginx
+	Index pattern - weblogs*
