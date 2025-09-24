@@ -1,3 +1,5 @@
+git clone https://github.com/Shamakhan14/linux_project.git
+
 Сеть:
 1) Запустить скрипт network_setup.sh
 	sh network_setup.sh {vm_ip} {vm_route} (192.168.31.73,192.168.31.1)

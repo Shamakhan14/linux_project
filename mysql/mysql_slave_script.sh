@@ -15,5 +15,6 @@ stop slave;
 stop replica;
 CHANGE REPLICATION SOURCE TO SOURCE_HOST='$APACHE1_IP', SOURCE_USER='repl', SOURCE_PASSWORD='oTUSlave#2020', SOURCE_AUTO_POSITION = 1, GET_SOURCE_PUBLIC_KEY = 1;
 start replica;
+start slave;
 show replica status\G
 EOF
