@@ -10,6 +10,8 @@ cp ./slave/* /etc/mysql/mysql.conf.d
 
 service mysql restart
 
+sleep 3
+
 mysql -u root << EOF
 stop slave;
 stop replica;
