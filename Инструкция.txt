@@ -7,7 +7,7 @@
 3) Запустить скрипт iptables_setup.sh
 	sh iptables_setup.sh
 4) Проверить настройку трафика командой
-	
+	iptables -L
 
 Nginx:
 1) Запустить скрипт nginx_scipt.sh
